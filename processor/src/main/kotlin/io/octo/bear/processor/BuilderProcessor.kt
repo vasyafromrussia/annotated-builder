@@ -27,10 +27,9 @@ class BuilderProcessor : AbstractProcessor() {
 
         buildingClasses.forEach {
             val parentType = it as TypeElement
-
-            val builderAnnotatedMethods = it.enclosedElements.toList()
+            val builderProperties: List<VariableElement> = parentType
+                    .enclosedElements.toList()
                     .filter { it.getAnnotation(BuilderProperty::class.java) != null }
-            val builderProperties: List<VariableElement> = builderAnnotatedMethods
                     .map { method ->
                         it.enclosedElements.first { element ->
                             element is VariableElement && element.simpleName.toString() == method.propertyName()
@@ -39,30 +38,30 @@ class BuilderProcessor : AbstractProcessor() {
 
             val baseBuilderName = "${it.simpleName}Builder"
 
-            var obj = TypeSpec.objectBuilder(baseBuilderName)
-
-            val initialFunction = createInitialFunction(
-                    parentType,
-                    builderProperties.first(),
-                    builderProperties.getOrNull(1)
-            )
-
-            obj = obj.addFunction(initialFunction)
-
-            for (i in 1 until builderProperties.size) {
-                val currentProperty = builderProperties[i]
-                val nextProperty = builderProperties.getOrNull(i + 1)
-                obj = obj.addType(createClassWithStepFunction(parentType, currentProperty, nextProperty))
-            }
-
-            obj = obj.addType(createFinalBuilderClass(parentType))
+            val builderObject = TypeSpec
+                    .objectBuilder(baseBuilderName)
+                    .addFunction(
+                            createInitialFunction(
+                                    parentType,
+                                    builderProperties.first(),
+                                    builderProperties.getOrNull(1)
+                            )
+                    )
+                    .addTypes(
+                            (1 until builderProperties.size).map {
+                                val currentProperty = builderProperties[it]
+                                val nextProperty = builderProperties.getOrNull(it + 1)
+                                createClassWithStepFunction(parentType, currentProperty, nextProperty)
+                            }
+                    )
+                    .addType(createFinalBuilderClass(parentType))
 
             val file = FileSpec
                     .builder(
                             processingEnv.elementUtils.getPackageOf(parentType).qualifiedName.toString(),
                             baseBuilderName
                     )
-                    .addType(obj.build())
+                    .addType(builderObject.build())
 
             val fixedCode = file.build().toString().replace("java.lang.String", "kotlin.String")
 

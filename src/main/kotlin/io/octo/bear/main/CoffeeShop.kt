@@ -4,7 +4,7 @@ fun main(args: Array<String>) {
     println("wanna some coffee?")
 
     val coffee = CoffeeBuilder
-            .withBeans("brazil")
+            .withBeans(Coffee.Beans.KENYA)
             .withMilk("soy")
             .withSyrup("caramel")
             .withSugar(false)
