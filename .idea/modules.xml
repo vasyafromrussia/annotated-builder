@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotated-builder.iml" filepath="$PROJECT_DIR$/.idea/modules/annotated-builder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotated-builder_main.iml" filepath="$PROJECT_DIR$/.idea/modules/annotated-builder_main.iml" group="annotated-builder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotated-builder_test.iml" filepath="$PROJECT_DIR$/.idea/modules/annotated-builder_test.iml" group="annotated-builder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotation.iml" filepath="$PROJECT_DIR$/.idea/modules/annotation.iml" group="annotation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotation/annotation_main.iml" filepath="$PROJECT_DIR$/.idea/modules/annotation/annotation_main.iml" group="annotation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotation/annotation_test.iml" filepath="$PROJECT_DIR$/.idea/modules/annotation/annotation_test.iml" group="annotation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/processor.iml" filepath="$PROJECT_DIR$/.idea/modules/processor.iml" group="processor" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/processor/processor_main.iml" filepath="$PROJECT_DIR$/.idea/modules/processor/processor_main.iml" group="processor" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/processor/processor_test.iml" filepath="$PROJECT_DIR$/.idea/modules/processor/processor_test.iml" group="processor" />
+    </modules>
+  </component>
+</project>

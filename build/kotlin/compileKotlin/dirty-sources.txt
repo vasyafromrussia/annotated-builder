@@ -1,0 +1,3 @@
+/Users/shc/develop/other/annotated-builder/src/main/kotlin/io/octo/bear/main/CoffeeShop.kt
+/Users/shc/develop/other/annotated-builder/build/generated/source/kaptKotlin/main/io/octo/bear/main/CoffeeBuilder.kt
+/Users/shc/develop/other/annotated-builder/src/main/kotlin/io/octo/bear/main/Coffee.kt

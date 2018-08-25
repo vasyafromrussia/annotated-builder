@@ -1,0 +1,4 @@
+rootProject.name = 'annotated-builder'
+include 'processor'
+include 'annotation'
+
